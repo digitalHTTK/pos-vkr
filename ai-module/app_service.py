@@ -1,5 +1,7 @@
 import json
 
+from modules.abc_svm import AbcSVM
+from modules.tree_occupancy import TreeOcupancy
 
 class AppService:
     
@@ -23,6 +25,16 @@ class AppService:
 
     def __init__(self):
         self.tasksJSON = json.dumps(self.tasks)
+
+    def debug(self):
+        # svm = AbcSVM()
+        # dataset = svm.load_dataset('abc.csv')
+        # svm.prepare_svm(dataset)
+
+        t = TreeOcupancy()
+        dataset = t.train_model()
+        return 'aaaaaaaaa'
+    
 
     def get_tasks(self):
         return self.tasksJSON
